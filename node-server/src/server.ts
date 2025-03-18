@@ -1,7 +1,5 @@
 import { createServer, IncomingMessage, ServerResponse } from "http";
-import fs, { rmSync } from 'fs';
-import { error } from "console";
-import { json } from "stream/consumers";
+import fs from 'fs';
 
 const server = createServer(async(req: IncomingMessage,res: ServerResponse) => {
 
@@ -81,7 +79,7 @@ const server = createServer(async(req: IncomingMessage,res: ServerResponse) => {
 
     if(url == '/citi/dev'){
         res.setHeader('Content-Type', 'application/json')
-        res.end(JSON.stringify({message: 'Desenvolvimento 25.1', status:200}))
+        res.end(JSON.stringify({message: 'Desenvolvimento 25.1 💚', status:200}))
     }
 
     if(url == '/citi/ditto'){
@@ -120,6 +118,6 @@ catch(error){
 
 })
 
-server.listen(3000, ()=>{
-    console.log('Servidor rodando na porta 3000');
+server.listen(3001, ()=>{
+    console.log('Servidor rodando na porta 3001');
 })

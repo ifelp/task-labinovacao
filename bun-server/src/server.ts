@@ -27,13 +27,14 @@ app({
             PUT: ()=> Response.json({message:'atualizado.', updated:true}),
             DELETE: ()=> new Response('', {status: 204})
         },
+        //-m 'POST' -m 'PUT' -m 'DELETE'
 
         "/citi/lab-inovacao" : new Response(html, {
             headers:{
             "Content-Type": "text/html"
         }}),
 
-        "/citi/dev": Response.json({message: "Desenvolvimento 25.1"}, {status: 200}),
+        "/citi/dev": Response.json({message: "Desenvolvimento 25.1 💚"}, {status: 200}),
 
         "/citi/ditto": new Response(await Bun.file("./src/assets/Ditto.webp").bytes()),
 
@@ -43,5 +44,7 @@ app({
         console.error(error.message)
         return new Response("Erro no servidor", {status: 500})
     }
+
 })
+console.log("Servidor rodando na porta 3000")
 //Servidor bun pronto (talvez necessite de algumas alterações futuramente)

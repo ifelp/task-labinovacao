@@ -1,12 +1,17 @@
 {
   "name": "bun-server",
   "module": "index.ts",
-  "type": "module",
-  "private": true,
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
-  }
+  },
+  "private": true,
+  "scripts": {
+    "dev": "bun --watch run src/server.ts",
+    "bench": "autocannon -c 400 -d 120 -p 12 http://localhost:3000/citi/skylines"
+  },
+  "type": "module"
 }
+

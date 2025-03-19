@@ -1,0 +1,21 @@
+name: nodevsbun
+
+services:
+  bun:
+    build: ./bun-server
+    ports:
+      - 3000:3000
+    develop:
+      watch:
+        - path: ./bun-server
+          action: rebuild
+          target: /server
+  node:
+    build: ./node-server
+    ports:
+      - 3001:3001
+    develop:
+      watch:
+        - path: ./node-server
+          action: rebuild
+          target: /server
